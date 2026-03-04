@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard — User Management Portal</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+    <!-- ──── Top Bar ──── -->
+    <div class="topbar">
+        <div class="logo">Admin<span>Panel</span></div>
+        <div class="topbar-actions">
+            <span class="topbar-user" id="topbarName">Welcome, Admin</span>
+            <button class="btn btn-sm btn-outline" id="logoutBtn">Logout</button>
+        </div>
+    </div>
+
+    <!-- ──── Dashboard ──── -->
+    <div class="dashboard">
+        <h2>👑 Admin Dashboard</h2>
+
+        <div id="alertBox" class="alert"></div>
+
+        <!-- Stats -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-value" id="statTotal">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="statActive">0</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="statSuspended">0</div>
+                <div class="stat-label">Suspended Users</div>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <tr>
+                        <td colspan="6" style="text-align:center; padding:32px; color:var(--text-light);">
+                            Loading users...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ──── Delete Confirmation Modal ──── -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal">
+            <h3>⚠️ Confirm Delete</h3>
+            <p>Are you sure you want to delete <strong id="deleteUserName"></strong>? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn btn-sm btn-outline" id="cancelDeleteBtn">Cancel</button>
+                <button class="btn btn-sm btn-danger" id="confirmDeleteBtn">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
